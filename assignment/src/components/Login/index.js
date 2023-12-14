@@ -20,14 +20,12 @@ function Login() {
         }
         signInWithEmailAndPassword(auth,email,password).then((res)=>{
           const {_tokenResponse}=res
-          console.log(_tokenResponse)
-        console.log("response",res)
-        const {idToken}=_tokenResponse
-        console.log("token",idToken)
-        Cookies.get("verification_token")
-
-        
-        navigate("/")
+          const {idToken}=_tokenResponse
+          console.log(idToken)
+          Cookies.get("token")
+          localStorage.getItem("userData")
+          
+        navigate("/home")
        }).catch((error)=>{
         setError("Wrong username or password",error.msg)
         console.log(error)
@@ -82,7 +80,7 @@ function Login() {
               <FcGoogle className='cursor-pointer h-7 w-7 ' onClick={signUpWithGoogle}/>
               <p className='text-sm'>Login with Google</p>
               </div>
-              <p className='text-center text-neutral-500'>New User?<Link to="/signin"><span className='text-teal-600'>SignIn</span></Link></p>
+              <p className='text-center text-neutral-500'>New User?<Link to="/"><span className='text-teal-600'>SignIn</span></Link></p>
       </form>
     </div>
   )

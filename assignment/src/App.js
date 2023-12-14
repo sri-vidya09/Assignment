@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { auth } from './firebase'
 
 
+
 function App() {
   const [presentUser,setUser] = useState(null)
   useEffect(()=>{
@@ -21,9 +22,9 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/signin"  element={<SignIn/>}></Route>
+      <Route path="/"  element={<SignIn/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
-      <Route path='/' element={<Home/>}></Route>
+      <Route path='/home' element={<Home/>}></Route>
     </Routes>
     </BrowserRouter>
     
