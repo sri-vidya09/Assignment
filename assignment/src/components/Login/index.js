@@ -24,9 +24,7 @@ function Login() {
         console.log("response",res)
         const {idToken}=_tokenResponse
         console.log("token",idToken)
-        Cookies.set("login_token",idToken,{
-          expires:30,
-        })
+        Cookies.get("verification_token")
 
         
         navigate("/")
